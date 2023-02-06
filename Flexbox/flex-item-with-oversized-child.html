@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Item(overflow not set) with Oversized Child</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <style>
+    body {
+      padding-left: 16px;
+    }
+    .container {
+      width: 600px;
+      display: flex;
+    }
+    .container > div {
+      height: 100px;
+      font-size: 18px;
+      flex-basis: 100px;
+      flex-grow: 1;
+    }
+    .box-1 {
+      background-color: cyan;
+    }
+    .box-2 {
+      background-color: purple;
+      /* overflow: auto; /* uncomment this to see what will happen */
+    }
+    .box-3 {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Flex Item(overflow not set) with Oversized Child</div>
+  <div class="container">
+    <div class="box-1">Box 1</div>
+    <div class="box-2">
+      <div style="width: 250px; height: 50px; background-color: salmon;">
+        Box 2's child
+      </div>
+    </div>
+    <div class="box-3">
+      Box 3
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./shared/common.css">
+  <style>
+    .box {
+      /* margin: 50px; */
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      const box = document.querySelector(".box");
+      // const info = 
+      const arr = Array.from({ length: 10000 }).fill("Lorem, ipsum dolor s")
+      const maxLineNumberWidth = Math.floor(Math.log10(arr.length)) + 1;
+      console.log("max line number width", maxLineNumberWidth)
+      arr.forEach((it, index) => {
+        box.textContent += `${String(index + 1).padStart(maxLineNumberWidth)}. ${it}\n`
+      })
+    }
+  </script>
+</head>
+<body>
+  <pre class="box"></pre>
+</body>
+</html>

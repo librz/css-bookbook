@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./shared/common.css">
+  <style>
+    .box {
+      width: 50vw;
+      height: 20vh;
+      padding: 16px;
+      margin: 24px;
+      font-size: 24px;
+      border-radius: 8px;
+      background-color: salmon;
+      color: #fff;
+    }
+    /* .box:hover {
+      background-color: royalblue;
+    }
+    .box:hover::after {
+      content: " Hovered";
+    } */
+  </style>
+</head>
+<body>
+  <div class="box">Aloha!</div>
+  <script>
+    const box = document.querySelector(".box");
+
+    box.addEventListener("click", () => {
+      console.log("clicked")
+      box.setAttribute("style", "background-color: blueviolet;")
+      box.textContent = "Clicked"
+    })
+
+    box.addEventListener("mouseenter", () => {
+      console.log("mouse entered")
+      box.setAttribute("style", "background-color: royalblue;")
+      box.textContent = "Hovered"
+    })
+
+    box.addEventListener("mouseleave", () => {
+      console.log('mouse left')
+      box.setAttribute("style", "background-color: salmon")
+      box.textContent = "Aloha!"
+    })
+  </script>
+</body>
+</html>

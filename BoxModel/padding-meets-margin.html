@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padding meets margin</title>
+  <link rel="stylesheet" href="../shared/css-reset.css">
+  <style>
+    .outter-box {
+      padding: 50px;
+      width: fit-content;
+      background-color: salmon;
+    }
+    .inner-box {
+      margin: 50px;
+      width: 500px;
+      height: 300px;
+      background-color: blueviolet;
+      color: white;
+      padding: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="outter-box">
+    <div class="inner-box">
+      <h1>
+        I'm the inner box!
+        I have margin, my parent(outter box) has padding.
+        Will them collapse? How much whitespace is there between me & my parent?
+      </h1>
+    </div>
+  </div>
+</body>
+</html>

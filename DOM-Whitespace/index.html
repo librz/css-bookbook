@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Whitespace</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <style>
+    body {
+      padding-left: 16px;
+    }
+    div, pre {
+      background-color: teal;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    .info {
+      padding: 24px;
+      background-color: var(--primary-background-color);
+      border-radius: 4px;
+    }
+    .info p {
+      line-height: 2;
+      margin: 0px;
+    }
+    .info p code {
+      background-color: teal;
+    }
+    .info p a {
+      color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Whitespace in DOM Node</div>
+  <div>  Hello  World!  </div>
+  <pre>  Hello  World!  </pre>
+  <div>&nbsp;&nbsp;Hello&nbsp;&nbsp;World!&nbsp;&nbsp;</div>
+  <div class="info">
+    <p>
+      Whitespaces from start & end of text inside HTML tags(not including <code>&lt;pre&gt;</code>) will be trimmed.
+    </p>
+    <p>
+      Whitespaces in between words will be reduced to one.
+    </p>
+    <p>
+      If you want to preserve whitespace, either use <code>&lt;pre&gt;</code> or use HTML code for space(<code>&#38;nbsp;</code>) 
+    </p>
+    <p>
+      For more info, see: 
+      <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace">MDN: How whitespace is handled by HTML, CSS, and in the DOM</a>
+    </p>
+  </div>
+</body>
+</html>

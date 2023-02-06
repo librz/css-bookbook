@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimensions</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <style>
+    body {
+      padding: 8px;
+    }
+    .info p {
+      font-size: 20px;
+    }
+    .box {
+      width: 400px;
+      height: 200px;
+      overflow-y: auto; /* change this to hidden & see what happens */
+      border: 8px solid cyan;
+      color: whitesmoke;
+      background-color: teal;
+      padding: 20px;
+      margin: 24px 0px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Definitions(assuming box-sizing is border-box):</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Definition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Offset width/height</td>
+        <td>content + padding + scrollbar + border</td>
+      </tr>
+      <tr>
+        <td>Client width/height</td>
+        <td>content + padding</td>
+      </tr>
+      <tr>
+        <td>Scroll width/height</td>
+        <td>think of it as Client width/height if content is fully expanded(no overflow)</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="title">Example:</div>
+  <div class="box">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae mollitia omnis distinctio autem hic odit consequatur ipsam, vitae facere animi dicta quisquam doloribus! Dolorem eveniet nam aliquid quisquam mollitia explicabo.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae mollitia omnis distinctio autem hic odit consequatur ipsam, vitae facere animi dicta quisquam doloribus! Dolorem eveniet nam aliquid quisquam mollitia explicabo.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae mollitia omnis distinctio autem hic odit consequatur ipsam, vitae facere animi dicta quisquam doloribus! Dolorem eveniet nam aliquid quisquam mollitia explicabo.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae mollitia omnis distinctio autem hic odit consequatur ipsam, vitae facere animi dicta quisquam doloribus! Dolorem eveniet nam aliquid quisquam mollitia explicabo.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae mollitia omnis distinctio autem hic odit consequatur ipsam, vitae facere animi dicta quisquam doloribus! Dolorem eveniet nam aliquid quisquam mollitia explicabo.
+  </div>
+  <div class="result"></div>
+  <script>
+    const box = document.querySelector(".box");
+
+    function renderResult(htmlString) {
+      const result = document.querySelector(".result");
+      result.innerHTML = htmlString;
+    }
+
+    const computedStyle = window.getComputedStyle(box);
+
+    const { padding, margin, borderWidth } = computedStyle;
+
+    const { offsetWidth, offsetHeight, clientWidth, clientHeight, scrollWidth, scrollHeight } = box;
+
+    renderResult(`
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Basic</td>
+            <td>Padding: ${padding}</td>
+            <td>Border Width/Height: ${borderWidth}</td>
+            <td>Margin: ${margin} (not related to height of any kind)</td>
+          </tr>
+          <tr>
+            <td>Width</td>
+            <td>Offset width: ${offsetWidth}px</td>
+            <td>Client Width: ${clientWidth}px = ${offsetWidth}px - ${borderWidth} * 2 - vertical scrollbar width</td>
+            <td>Scroll Width: ${scrollWidth}px (same as client width since no horizontal overflow)</td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td>Offset height: ${offsetHeight}px</td>
+            <td>Client Height: ${clientHeight}px = ${offsetHeight}px - ${borderWidth} * 2 - 0px (horizontal scrollbar height)</td>
+            <td>Scroll Height: ${scrollHeight}px (higher than client height because of vertical overflow)</td>
+          </tr>
+        </tbody>
+      </table>
+    `)
+  </script>
+</body>
+</html>

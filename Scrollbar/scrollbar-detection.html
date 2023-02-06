@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scrollbar Detection</title>
+  <link rel="stylesheet" href="../shared/common.css">
+	<style>
+    body {
+      padding-left: 16px;
+    }
+		.box {
+      width: 400px;
+      height: 160px;
+      background-color: blueviolet;
+      color: #fff;
+      overflow-y: auto;
+      padding: 4px 8px;
+      font-size: 18px;
+      border-radius: 4px;
+    }
+
+    .result {
+      font-size: 20px;
+      margin: 24px 0px;
+    }
+
+	</style>
+</head>
+
+<body>
+  <div class="title">Detect whether an element has scrollbar</div>
+	<div class="box">
+    Compare clientHeight & scrollHeight to detect whether there are vertical scrollbar.
+    (Similarly, use clientWidth & scrollWidth for horizontal scrollbar.)
+  </div>
+  <div class="result"></div>
+  <div class="button-primary">Add More Text</div>
+  <script>
+    const box = document.querySelector(".box");
+    
+    const button = document.querySelector(".button-primary")
+
+    function renderResult() {
+      document.querySelector(".result").innerHTML = 
+        box.scrollHeight > box.clientHeight ? "Has vertical scrollbar" : "No vertical scrollbar";
+    }
+
+    renderResult()
+
+    button.addEventListener("click", () => {
+      const extraText = "Here are just some random text.".repeat(5);
+      box.textContent = [box.textContent, extraText].join(" ");
+      renderResult()
+    })
+  </script>
+</body>
+
+</html>

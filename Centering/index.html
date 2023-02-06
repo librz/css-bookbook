@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centering</title>
+  <link rel="stylesheet" href="../shared//common.css">
+  <style>
+    body {
+      padding: 24px;
+    }
+    .container {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    .outter {
+      width: 480px;
+      height: 200px;
+      background-color: blueviolet;
+      border-radius: 4px;
+      font-size: 28px;
+      color: #fff;
+    }
+    .inner {
+      width: 300px;
+      height: 100px;
+      background-color: coral;
+      padding: 16px;
+      border-radius: 4px;
+      /* the following is just to center text */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">How to center child element/node</div>
+  <div class="container">
+    <!-- method 1: use flex -->
+    <div class="outter" style="display: flex; align-items: center; justify-content: center;">
+      <div class="inner">
+        use flex
+      </div>
+    </div>
+    <!-- method 2: use grid -->
+    <div class="outter" style="display: grid; place-items: center;">
+      <div class="inner">
+        use grid
+      </div>
+    </div>
+    <!-- method 3: use absolute position + transform & translate -->
+    <div class="outter" style="position: relative;">
+      <div class="inner" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        use absolute position + transfrom & translate
+      </div>
+    </div>
+    <!-- method 4:
+      horizontal: set horizontal margin to auto
+      vertical: mannual calculate the suitable padding of parent box
+    -->
+    <div class="outter" >
+      <div class="inner" style="margin: calc((200px - 100px) / 2) auto;">
+        use calc
+      </div>
+    </div>
+    <!-- to center text, aside from the above methods, you could also do
+      horizontal: set text-align to center
+      vertical: set line-height to be exactly the same as height
+    -->
+    <div class="outter" style="line-height: 200px; text-align: center;">
+      Text Node
+    </div>
+  </div>
+</body>
+</html>

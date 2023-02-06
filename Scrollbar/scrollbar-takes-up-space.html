@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollbar takes up space</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <style>
+    body {
+      padding-left: 16px;
+    }
+    .box {
+      background-color: blueviolet;
+      box-sizing: border-box;
+      width: 400px;
+      height: 200px;
+      font-size: 18px;
+      color: white;
+      padding: 10px;
+      overflow-y: auto; /* comment out this line or change the value to hidden, see what happens */
+    }
+
+    .result {
+      font-size: 20px;
+      margin: 24px 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title">Scrollbar takes up space</div>
+  <div class="box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt repellendus veniam libero, corrupti nostrum illum quod earum dignissimos error ad temporibus culpa, doloribus obcaecati alias porro explicabo! Porro, ad! Numquam!
+    Consectetur, fugiat aperiam. Nihil repudiandae eaque harum maxime fuga commodi dolore, velit repellendus ipsam dolor perspiciatis esse adipisci saepe veritatis animi, corrupti perferendis sequi odio. Dicta tenetur dignissimos corporis quae!
+    Vero odio, porro animi eligendi, iure expedita quod dignissimos labore cupiditate incidunt ut amet. Tenetur adipisci perferendis repellat similique, et, quibusdam possimus dolorum suscipit, atque libero natus cum? Rerum, praesentium?
+    Assumenda eveniet sapiente voluptate harum est explicabo modi qui corporis sunt, porro reprehenderit aliquam necessitatibus sequi odit vel alias exercitationem amet. Delectus pariatur, fugit corrupti error blanditiis quibusdam excepturi? Placeat!
+    Expedita vel accusamus, magnam id itaque qui nobis quam est aperiam minima possimus, nam impedit optio voluptate dolorum at, rem tempora sit architecto in dicta. Quibusdam necessitatibus vero dolore ullam.
+  </div>
+  <div class="result"></div>
+  <script>
+    const box = document.querySelector(".box");
+    const result = document.querySelector(".result");
+    result.innerHTML = `
+      <div>Box's width is set to ${window.getComputedStyle(box).width}</div>
+      <div>With vertical scrollbar, box's clientWidth becomes ${box.clientWidth}px</div>
+      <div>For more details, see <a target="_blank" href="https://javascript.info/size-and-scroll">size-and-scroll</a></div>
+    `
+  </script>
+</body>
+
+</html>

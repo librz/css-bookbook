@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollbar Basic Styling</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <style>
+
+    body {
+      padding-left: 16px;
+    }
+
+    .box {
+      background-color: lightcyan;
+      color: #333;
+      font-size: 18px;
+      width: 400px;
+      height: 200px;
+      padding: 0px 8px;
+      border-radius: 4px;
+      overflow-y: auto; /* comment out this line or change the value to hidden, see what happens */
+    }
+
+    /* customize scrllbar style for webkit(Chrome, Safari) */
+
+    .box::-webkit-scrollbar {
+      width: 8px; /* only affects width of vertical scroll bar */
+      height: 8px; /* only affects height of horizontal scroll bar */
+    }
+
+    .box::-webkit-scrollbar-thumb {
+      background-color: salmon;
+      border-radius: 5px;
+    }
+
+    /* customize scrollbar style for Firefox */
+    /* css fefature support: https://developer.mozilla.org/en-US/docs/Web/CSS/@supports */
+    @supports (scrollbar-color: salmon lavender) {
+      .box {
+        scrollbar-color: salmon lavender;
+        scrollbar-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Basic Styling for Scrollbar</div>
+  <div class="box">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis distinctio neque voluptatem molestiae ut adipisci dolorem sunt error doloribus soluta cumque, sequi sed doloremque dolores fuga illo. A, magnam!
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis distinctio neque voluptatem molestiae ut adipisci dolorem sunt error doloribus soluta cumque, sequi sed doloremque dolores fuga illo. A, magnam!
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis distinctio neque voluptatem molestiae ut adipisci dolorem sunt error doloribus soluta cumque, sequi sed doloremque dolores fuga illo. A, magnam!
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis distinctio neque voluptatem molestiae ut adipisci dolorem sunt error doloribus soluta cumque, sequi sed doloremque dolores fuga illo. A, magnam!
+  </div>
+</body>
+</html>

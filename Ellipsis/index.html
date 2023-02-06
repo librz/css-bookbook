@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Ellipsis</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <style>
+    .paragraph {
+      margin: 8px;
+      width: 500px;
+      border-radius: 4px;
+      padding: 4px;
+      font-size: 18px;
+      color: white;
+    }
+    
+    .single-line-ellipsis {
+      background-color: var(--primary-background-color);
+      /* must include all of the following rules */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .multi-line-ellipsis {
+      background-color: var(--primary-background-color);
+      /* must include all of the following rules */
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* max lines to display */
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="paragraph single-line-ellipsis">
+    Single Line Ellipsis: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptates aliquam neque laborum nulla ducimus, magnam vitae maxime laudantium sunt deserunt impedit beatae facere cumque vel consequuntur, commodi excepturi delectus?
+  </div>
+  <div class="paragraph multi-line-ellipsis">
+    Multi Line Ellipsis:
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est debitis modi dignissimos quam quo provident in odio cum soluta laboriosam, deserunt veniam, pariatur nemo! Recusandae fugiat obcaecati iusto nisi repudiandae.
+  </div>
+</body>
+</html>
